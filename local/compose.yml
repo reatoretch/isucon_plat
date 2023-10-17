@@ -1,0 +1,21 @@
+version: '3'
+
+services:
+  grafana:
+    image: grafana/grafana
+    container_name: grafana
+    environment:
+      - GF_EXPLORE_ENABLED=true
+    ports:
+      - 3000:3000
+    volumes:
+      - ./grafana.ini:/etc/grafana/grafana.ini
+
+  loki:
+    image: grafana/loki:2.9.1
+    container_name: loki
+    ports: 
+      - 3100:3100
+    volumes: 
+      - .:/mnt/config
+    command: -config.file=/mnt/config/loki-config.yaml
