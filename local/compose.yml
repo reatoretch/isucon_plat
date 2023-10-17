@@ -19,3 +19,12 @@ services:
     volumes: 
       - .:/mnt/config
     command: -config.file=/mnt/config/loki-config.yaml
+
+  prometheus:
+    image: prom/prometheus
+    ports:
+      - 9090:9090
+    volumes:
+      - ./prometheus.yaml:/etc/prometheus/prometheus.yaml
+
+    command: "--config.file=/etc/prometheus/prometheus.yaml"
