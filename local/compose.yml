@@ -10,7 +10,7 @@ services:
       - 3000:3000
     volumes:
       - ./grafana/grafana.ini:/etc/grafana/grafana.ini
-      - ./grafana/datasources/:/etc/grafana/provisioning/datasources/
+      - ./grafana/provisioning/:/etc/grafana/provisioning
 
   loki:
     image: grafana/loki:2.9.1
