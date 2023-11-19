@@ -22,7 +22,7 @@ services:
     command: -config.file=/mnt/config/loki-config.yaml
 
   prometheus:
-    image: prom/prometheus
+    image: prom/prometheus:v2.46.0
     ports:
       - 9090:9090
     volumes:
