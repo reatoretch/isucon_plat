@@ -1,0 +1,19 @@
+version: "3.8"
+
+services:
+  promtail:
+    image: grafana/promtail:2.9.1
+    command: "--config.file=/mnt/config/promtail-config.yaml"
+    volumes:
+      - /var/log:/var/log
+      - .:/mnt/config
+    network_mode: host
+
+  node-exporter:
+    image: quay.io/prometheus/node-exporter:1.7.0
+    command: "--path.rootfs=/host"
+    volumes:
+      - /:/host:ro,rslave
+    pid: host
+    network_mode: host
+
