@@ -10,7 +10,7 @@ services:
     network_mode: host
 
   node-exporter:
-    image: quay.io/prometheus/node-exporter:1.7.0
+    image: quay.io/prometheus/node-exporter:v1.6.1
     command: "--path.rootfs=/host"
     volumes:
       - /:/host:ro,rslave
